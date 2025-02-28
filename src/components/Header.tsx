@@ -59,11 +59,11 @@ const OnlineStatus: React.FC = () => {
           width: '10px', 
           height: '10px', 
           borderRadius: '50%', 
-          backgroundColor: '#4CAF50', 
+          backgroundColor: '#5a93fc', 
           display: 'inline-block' 
         }} 
       />
-      <span>Development Team Online</span>
+      <span>We're Online</span>
     </Flex>
   );
 };
@@ -94,7 +94,7 @@ export const Header = () => {
           style={{ 
             top: '50%',
             transform: 'translateY(-50%)', 
-            color: 'white', 
+            color: '#5a93fc', 
             fontWeight: 'bold',
             fontSize: '1.5rem',
             zIndex: 10
