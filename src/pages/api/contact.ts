@@ -43,6 +43,7 @@ export default async function handler(req, res) {
         <p>We have received your inquiry and will get back to you as soon as possible.</p>
         <br>
         <p>Best regards,</p>
+        <p>Eric chesbrough</p>
         <p>Sofrix</p>
       `,
     });
@@ -52,4 +53,4 @@ export default async function handler(req, res) {
     console.error('Error sending email:', error);
     res.status(500).json({ message: 'Error sending email' });
   }
-} 
+}

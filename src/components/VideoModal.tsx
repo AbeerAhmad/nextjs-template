@@ -86,7 +86,6 @@ const VideoModal: React.FC<VideoModalProps> = ({
             <video
               src={videoUrl}
               controls
-              autoPlay
               style={{
                 width: "100%",
                 height: "100%",

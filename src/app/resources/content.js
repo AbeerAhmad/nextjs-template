@@ -291,95 +291,60 @@ const home = {
       "Back-End",
       "Full-Stack",
       "Mobile",
-      "DevOps",
-      "AI/ML",
-      "UX/UI"
+     
     ],
     engineers: [
+    
       {
-        name: "Thomas Wright",
+        name: "Julian Perez",
         expertise: "Front-End",
-        image: "https://picsum.photos/id/1074/300/300",
-        skills: ["React", "Vue.js", "TypeScript", "CSS/SASS"],
+        image: "/images/user2.jpg",
+        skills: ["React", "Vue.js", "TypeScript", "CSS/SASS", "Angular", "Node.js", "Python", "MongoDB", "SQL"],
         experience: "7 years"
       },
       {
-        name: "Sophia Garcia",
-        expertise: "Back-End",
-        image: "https://picsum.photos/id/1068/300/300",
-        skills: ["Node.js", "Python", "MongoDB", "SQL"],
+        name: "Abeer Ahmad",
+        expertise: "Front-End",
+        image: "/images/aa.png",
+        skills: ["React", "Vue.js", "TypeScript", "CSS/SASS", "Angular", "Node.js", "Python", "MongoDB", "SQL"],
         experience: "6 years"
       },
       {
-        name: "James Wilson",
-        expertise: "Full-Stack",
-        image: "https://picsum.photos/id/1072/300/300",
-        skills: ["JavaScript", "React", "Node.js", "AWS"],
-        experience: "8 years"
+        name: "Aw***** ***",
+        expertise: "Back-End",
+        image: "/images/aw.png",
+        skills: ["Node.js", "Python", "MongoDB", "SQL"],
+        experience: "4 years"
       },
       {
-        name: "Olivia Taylor",
+        name: "B***** ***",
+        expertise: "Back-End",
+        image: "/images/a.png",
+        skills: ["Node.js", "Python", "MongoDB", "SQL"],
+        experience: "4 years"
+      },
+      {
+        name: "A***** ***",
+        expertise: "Full-Stack",
+        image: "/images/U.jpg",
+        skills: ["JavaScript", "React", "Node.js", "AWS"],
+        experience: "2 years"
+      },
+      {
+        name: "A***** ***",
         expertise: "Mobile",
-        image: "https://picsum.photos/id/1077/300/300",
+        image: "/images/ww.png",
         skills: ["React Native", "Swift", "Kotlin", "Firebase"],
         experience: "5 years"
       },
       {
-        name: "Daniel Lee",
-        expertise: "DevOps",
-        image: "https://picsum.photos/id/1066/300/300",
-        skills: ["Docker", "Kubernetes", "CI/CD", "AWS/Azure"],
-        experience: "7 years"
-      },
-      {
-        name: "Emma Martinez",
-        expertise: "AI/ML",
-        image: "https://picsum.photos/id/1071/300/300",
-        skills: ["TensorFlow", "PyTorch", "NLP", "Computer Vision"],
-        experience: "6 years"
-      },
-      {
-        name: "Ryan Thompson",
-        expertise: "UX/UI",
-        image: "https://picsum.photos/id/1070/300/300",
-        skills: ["Figma", "Adobe XD", "UI Design", "User Research"],
-        experience: "5 years"
-      },
-      {
-        name: "Natalie Wong",
-        expertise: "Front-End",
-        image: "https://picsum.photos/id/1069/300/300",
-        skills: ["Angular", "React", "JavaScript", "Responsive Design"],
-        experience: "6 years"
-      },
-      {
-        name: "Christopher Davis",
-        expertise: "Back-End",
-        image: "https://picsum.photos/id/1073/300/300",
-        skills: ["Java", "Spring Boot", "PostgreSQL", "Microservices"],
-        experience: "9 years"
-      },
-      {
-        name: "Ava Robinson",
-        expertise: "Full-Stack",
-        image: "https://picsum.photos/id/1083/300/300",
-        skills: ["MERN Stack", "GraphQL", "TypeScript", "Redux"],
-        experience: "7 years"
-      },
-      {
-        name: "Lucas Brown",
+        name: "A***** ***",
         expertise: "Mobile",
-        image: "https://picsum.photos/id/1080/300/300",
-        skills: ["Flutter", "iOS", "Android", "Cross-platform"],
-        experience: "6 years"
+        image: "/images/pic1.jpg",
+        skills: ["React Native", "Swift", "Kotlin", "Firebase"],
+        experience: "3 years"
       },
-      {
-        name: "Isabella Clark",
-        expertise: "AI/ML",
-        image: "https://picsum.photos/id/1084/300/300",
-        skills: ["Data Science", "Machine Learning", "Python", "R"],
-        experience: "8 years"
-      }
+      
     ]
   },
 };

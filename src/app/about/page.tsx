@@ -62,6 +62,11 @@ export default function About() {
       display: about.studies.display,
       items: about.studies.institutions.map((institution) => institution.name),
     },
+    {
+      title: about.technical.title,
+      display: about.technical.display,
+      items: [],
+    },
    
   ];
   return (
@@ -304,6 +309,72 @@ export default function About() {
      
 
       {/* Resource Augmentation Section */}
+      {home.resourceAugmentation?.display && (
+        <Column gap="l" paddingY="m">
+          <Column maxWidth="s" gap="m" paddingBottom="m">
+            <Heading as="h2" id={home.resourceAugmentation.title} variant="display-strong-m" wrap="balance">
+              {home.resourceAugmentation.title}
+            </Heading>
+            <Text variant="body-default-l" wrap="balance" onBackground="neutral-weak">
+              {home.resourceAugmentation.description}
+            </Text>
+          </Column>
+          
+          {/* Filter Buttons */}
+          <div className="filter-buttons">
+            {home.resourceAugmentation.categories.map((category, index) => (
+              <button
+                key={`category-${index}`}
+                className={`filter-button ${activeCategory === category ? 'active' : ''}`}
+                onClick={() => setActiveCategory(category)}
+              >
+                {category}
+              </button>
+            ))}
+          </div>
+          
+          {/* Engineers Grid */}
+          <div className="resource-grid">
+            {filteredEngineers.map((engineer, index) => (
+              <div key={`engineer-${index}`} className="resource-card">
+                <div className="resource-image-container">
+                  <Image
+                    src={engineer.image}
+                    alt={engineer.name}
+                    width={300}
+                    height={300}
+                    className="resource-image"
+                    quality={90}
+                  />
+                </div>
+                <div className="resource-content">
+                  <div>
+                    <span className="resource-expertise">{engineer.expertise}</span>
+                    <Heading as="h3" variant="heading-strong-l">
+                      {engineer.name}
+                    </Heading>
+                  </div>
+                  <div>
+                    <Text variant="body-default-s" onBackground="neutral-weak">
+                      Skills:
+                    </Text>
+                    <div className="resource-skills">
+                      {engineer.skills.map((skill, skillIndex) => (
+                        <span key={`skill-${skillIndex}`} className="resource-skill">
+                          {skill}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                  <div className="resource-experience">
+                    Experience: {engineer.experience}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </Column>
+      )}
    
       <MobileStyles />
     </Column>
