@@ -4,7 +4,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import Link from "next/link";
 
-import { Fade, Flex, Line, ToggleButton } from "@/once-ui/components";
+import { Fade, Flex, Line, SmartImage, ToggleButton } from "@/once-ui/components";
 import styles from "@/components/Header.module.scss";
 
 import { routes, display } from "@/app/resources";
@@ -100,9 +100,13 @@ export const Header = () => {
             zIndex: 10
           }}
         >
-          <Link href="/" style={{ color: 'inherit', textDecoration: 'none' }}>
-            SOFRIX
-          </Link>
+          {/* <Link href="/" style={{ color: 'inherit', textDecoration: 'none' }}> */}
+            <img
+              alt="SOFRIX Logo"
+              width={170}
+              src="/images/logo.svg"
+            />
+          {/* </Link> */}
         </Flex>
         
         <Flex paddingLeft="12" fillWidth vertical="center" textVariant="body-default-s">
