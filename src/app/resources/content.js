@@ -240,7 +240,7 @@ const home = {
     members: [
       {
         name: "Eric Chesbrough",
-        title: "Chief Technology Officer",
+        title: "Chief Executive Officer",
         image: "/images/eric.jpg",
         bio: "Eric leads our technology strategy with over 15 years of experience in software architecture and AI."
       },
