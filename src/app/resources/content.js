@@ -347,7 +347,7 @@ const home = {
       {
         name: "A***** ***",
         expertise: "Mobile",
-        image: "/images/pic1.jpg",
+        image: "/images/Pic1.jpg",
         skills: ["React Native", "Swift", "Kotlin", "Firebase"],
         experience: "3 years"
       },
