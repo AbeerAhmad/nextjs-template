@@ -303,8 +303,15 @@ const home = {
         experience: "7 years"
       },
       {
+        name: "Mesut Yilmaz",
+        expertise: "Mobile",
+        image: "/images/ln1.png",
+        skills: ["React Native", "Swift", "Kotlin", "Firebase","UI/UX"],
+        experience: "7 years"
+      },
+      {
         name: "Abeer Ahmad",
-        expertise: "Front-End",
+        expertise: "Full-Stack",
         image: "/images/aa.png",
         skills: ["React", "Vue.js", "TypeScript", "CSS/SASS", "Angular", "Node.js", "Python", "MongoDB", "SQL"],
         experience: "6 years"
