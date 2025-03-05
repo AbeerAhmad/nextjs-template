@@ -30,6 +30,42 @@ export function HomePage() {
   const [isVideoModalOpen, setIsVideoModalOpen] = React.useState(false);
   const [isShowcaseVideoModalOpen, setIsShowcaseVideoModalOpen] = React.useState(false);
   const [isBenefitsVideoModalOpen, setIsBenefitsVideoModalOpen] = React.useState(false);
+console.log(isVideoModalOpen)
+  // Check for URL parameters on component mount
+  React.useEffect(() => {
+    
+    // Get URL parameters
+    const params = new URLSearchParams(window.location.search);
+    const videoParam = params.get('video');
+    
+    // Open the appropriate video modal based on the parameter
+    if (videoParam) {
+      switch(videoParam.toLowerCase()) {
+        case 'about':
+          setTimeout(() => {
+            setIsVideoModalOpen(true);
+          }, 3000);
+          break;
+        case 'showcase':
+          setIsShowcaseVideoModalOpen(true);
+          break;
+        case 'benefits':
+          setIsBenefitsVideoModalOpen(true);
+          break;
+        default:
+          // No matching parameter
+          break;
+      }
+      
+      // Optionally remove the parameter from URL to avoid reopening on refresh
+      // This uses the History API to modify the URL without reloading the page
+      if (window.history && window.history.replaceState) {
+        const newUrl = window.location.pathname + 
+                      (params.toString() ? '?' + params.toString() : '');
+        window.history.replaceState({}, document.title, newUrl);
+      }
+    }
+  }, []);
 
   const openVideoModal = () => {
     setIsVideoModalOpen(true);
@@ -502,6 +538,7 @@ export function HomePage() {
           videoUrl={about.video.url}
           title={about.video.title}
           description={about.video.description}
+          autoPlay={true}
         />
 
         <VideoModal
@@ -510,6 +547,7 @@ export function HomePage() {
           videoUrl={home.showcase?.video?.url || ""}
           title={home.showcase?.video?.title || ""}
           description={home.showcase?.video?.description || ""}
+          autoPlay={true}
         />
 
         <VideoModal
@@ -518,6 +556,7 @@ export function HomePage() {
           videoUrl={home.benefits?.video?.url || ""}
           title={home.benefits?.video?.title || ""}
           description={home.benefits?.video?.description || ""}
+          autoPlay={true}
         />
         <MobileStyles />
       </Column>
