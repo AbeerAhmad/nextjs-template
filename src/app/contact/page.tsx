@@ -1,3 +1,4 @@
+"use client";
 import { Metadata } from "next";
 import {
   Card,
@@ -13,22 +14,127 @@ import {
   Input,
   RevealFx,
 } from "@/once-ui/components";
+import { useState } from "react";
+import { z } from "zod";
 
 import { contact, person } from "@/app/resources/content";
 import "./contact.css";
 
-export function generateMetadata(): Metadata {
-  return {
-    title: contact.title || "Contact Us",
-    description: contact.description,
-    openGraph: {
-      title: contact.title || "Contact Us",
-      description: contact.description,
-    }
-  };
-}
+// Define validation schema
+const contactFormSchema = z.object({
+  name: z.string().min(2, "Name must be at least 2 characters"),
+  email: z.string().email("Please enter a valid email address"),
+  subject: z.string().min(3, "Subject must be at least 3 characters"),
+  message: z.string().min(10, "Message must be at least 10 characters")
+});
+
+type ContactFormData = z.infer<typeof contactFormSchema>;
+
+// export function generateMetadata(): Metadata {
+//   return {
+//     title: contact.title || "Contact Us",
+//     description: contact.description,
+//     openGraph: {
+//       title: contact.title || "Contact Us",
+//       description: contact.description,
+//     }
+//   };
+// }
 
 export default function ContactPage() {
+  const [formData, setFormData] = useState<ContactFormData>({
+    name: "",
+    email: "",
+    subject: "",
+    message: ""
+  });
+  const [errors, setErrors] = useState<Partial<Record<keyof ContactFormData, string>>>({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<{
+    success?: boolean;
+    message?: string;
+  }>({});
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { id, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [id]: value
+    }));
+    
+    // Clear error when user starts typing
+    if (errors[id as keyof ContactFormData]) {
+      setErrors(prev => ({
+        ...prev,
+        [id]: undefined
+      }));
+    }
+  };
+
+  const validateForm = (): boolean => {
+    try {
+      contactFormSchema.parse(formData);
+      setErrors({});
+      return true;
+    } catch (error) {
+      if (error instanceof z.ZodError) {
+        const newErrors: Partial<Record<keyof ContactFormData, string>> = {};
+        error.errors.forEach(err => {
+          if (err.path[0]) {
+            newErrors[err.path[0] as keyof ContactFormData] = err.message;
+          }
+        });
+        setErrors(newErrors);
+      }
+      return false;
+    }
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    if (!validateForm()) return;
+    
+    setIsSubmitting(true);
+    setSubmitStatus({});
+    
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+      
+      const data = await response.json();
+      
+      if (!response.ok) {
+        throw new Error(data.message || 'Failed to send message');
+      }
+      
+      // Reset form on success
+      setFormData({
+        name: "",
+        email: "",
+        subject: "",
+        message: ""
+      });
+      
+      setSubmitStatus({
+        success: true,
+        message: 'Your message has been sent successfully!'
+      });
+    } catch (error) {
+      setSubmitStatus({
+        success: false,
+        message: error instanceof Error ? error.message : 'An unexpected error occurred'
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <div className="contact-container">
       {/* Hero Section with Angled Design */}
@@ -52,47 +158,84 @@ export default function ContactPage() {
         <div className="contact-form-container">
           <RevealFx delay={0.1}>
             <Card padding="xl" shadow="l" border="neutral-weak" radius="l" className="contact-card">
-              <Column gap="l">
-                <Heading variant="display-strong-m" className="section-title" color="neutral-strong">Send Us a Message</Heading>
-                
-                <div className="form-grid">
-                  <div className="form-group">
-                    <Input
-                      id="name"
-                      label="Name"
-                      required
-                    />
+              <form onSubmit={handleSubmit}>
+                <Column gap="l">
+                  <Heading variant="display-strong-m" className="section-title" color="neutral-strong">Send Us a Message</Heading>
+                  
+                  {submitStatus.message && (
+                    <div className={`status-message ${submitStatus.success ? 'success' : 'error'}`}>
+                      <Text color={submitStatus.success ? "success" : "error"}>
+                        {submitStatus.message}
+                      </Text>
+                    </div>
+                  )}
+                  
+                  <div className="form-grid">
+                    <div className="form-group">
+                      <Input
+                        id="name"
+                        label="Name"
+                        required
+                        value={formData.name}
+                        onChange={handleInputChange}
+                        error={errors.name}
+                      />
+                    </div>
+                    <div className="form-group">
+                      <Input
+                        id="email"
+                        label="Email"
+                        type="email"
+                        required
+                        value={formData.email}
+                        onChange={handleInputChange}
+                        error={errors.email}
+                      />
+                    </div>
                   </div>
-                  <div className="form-group">
-                    <Input
-                      id="email"
-                      label="Email"
-                      type="email"
-                      required
-                    />
-                  </div>
-                </div>
-                
-                <Input
-                  id="subject"
-                  label="Subject"
-                  required
-                />
-                
-                <Textarea
-                  id="message"
-                  label="Message"
-                  rows={6}
-                  required
-                />
-                
-                <Button variant="primary" size="l" className="submit-button">
-                  <Flex gap="s" vertical="center">
-                    <Icon name="send" size="s" onBackground="brand-strong" />
-                    <Text>Send Message</Text>
-                  </Flex>
-                </Button>
-              </Column>
+                  
+                  <Input
+                    id="subject"
+                    label="Subject"
+                    required
+                    value={formData.subject}
+                    onChange={handleInputChange}
+                    error={errors.subject}
+                  />
+                  
+                  <Textarea
+                    id="message"
+                    label="Message"
+                    rows={6}
+                    required
+                    value={formData.message}
+                    onChange={handleInputChange}
+                    error={errors.message}
+                  />
+                  
+                  <Button 
+                    variant="primary" 
+                    size="l" 
+                    className="submit-button"
+                    type="submit"
+                    disabled={isSubmitting}
+                  >
+                    <Flex gap="s" vertical="center">
+                      {isSubmitting ? (
+                        <>
+                          <Icon name="loader" size="s" onBackground="brand-strong" />
+                          <Text>Sending...</Text>
+                        </>
+                      ) : (
+                        <>
+                          <Icon name="send" size="s" onBackground="brand-strong" />
+                          <Text>Send Message</Text>
+                        </>
+                      )}
+                    </Flex>
+                  </Button>
+                </Column>
+              </form>
             </Card>
           </RevealFx>
         </div>

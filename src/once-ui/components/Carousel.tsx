@@ -14,6 +14,8 @@ interface CarouselProps extends React.ComponentProps<typeof Flex> {
   aspectRatio?: string;
   sizes?: string;
   revealedByDefault?: boolean;
+  autoplay?: boolean;
+  autoplayInterval?: number;
 }
 
 const Carousel: React.FC<CarouselProps> = ({
@@ -22,13 +24,17 @@ const Carousel: React.FC<CarouselProps> = ({
   aspectRatio = "16 / 9",
   sizes,
   revealedByDefault = false,
+  autoplay = true,
+  autoplayInterval = 3000,
   ...rest
 }) => {
   const [activeIndex, setActiveIndex] = useState<number>(0);
   const [isTransitioning, setIsTransitioning] = useState(revealedByDefault);
   const [initialTransition, setInitialTransition] = useState(revealedByDefault);
+  const [isPaused, setIsPaused] = useState(false);
   const nextImageRef = useRef<HTMLImageElement | null>(null);
   const transitionTimeoutRef = useRef<NodeJS.Timeout | undefined>(undefined);
+  const autoplayTimeoutRef = useRef<NodeJS.Timeout | undefined>(undefined);
 
   const preloadNextImage = (nextIndex: number) => {
     if (nextIndex >= 0 && nextIndex < images.length) {
@@ -61,6 +67,18 @@ const Carousel: React.FC<CarouselProps> = ({
     }
   };
 
+  const handleMouseEnter = () => {
+    if (autoplay) {
+      setIsPaused(true);
+    }
+  };
+
+  const handleMouseLeave = () => {
+    if (autoplay) {
+      setIsPaused(false);
+    }
+  };
+
   useEffect(() => {
     if (!revealedByDefault && !initialTransition) {
       setIsTransitioning(true);
@@ -70,8 +88,29 @@ const Carousel: React.FC<CarouselProps> = ({
       if (transitionTimeoutRef.current) {
         clearTimeout(transitionTimeoutRef.current);
       }
+      if (autoplayTimeoutRef.current) {
+        clearTimeout(autoplayTimeoutRef.current);
+      }
     };
   }, [revealedByDefault, initialTransition]);
+
+  useEffect(() => {
+    if (autoplay && images.length > 1 && !isPaused && !transitionTimeoutRef.current) {
+      autoplayTimeoutRef.current = setTimeout(() => {
+        const nextIndex = (activeIndex + 1) % images.length;
+        handleControlClick(nextIndex);
+        autoplayTimeoutRef.current = undefined;
+      }, autoplayInterval);
+    }
+
+    
+    return () => {
+      if (autoplayTimeoutRef.current) {
+        clearTimeout(autoplayTimeoutRef.current);
+        autoplayTimeoutRef.current = undefined;
+      }
+    };
+  }, [autoplay, activeIndex, images.length, isPaused, autoplayInterval]);
 
   if (images.length === 0) {
     return null;
@@ -81,6 +120,8 @@ const Carousel: React.FC<CarouselProps> = ({
     <Flex fillWidth gap="12" direction="column" {...rest}>
       <RevealFx
         onClick={handleImageClick}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
         fillWidth
         trigger={isTransitioning}
         translateY="16"

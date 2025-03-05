@@ -62,21 +62,7 @@ export default function About() {
       display: about.studies.display,
       items: about.studies.institutions.map((institution) => institution.name),
     },
-    {
-      title: about.technical.title,
-      display: about.technical.display,
-      items: about.technical.skills.map((skill) => skill.title),
-    },
-    {
-      title: home.teamMembers?.title || "Team Members",
-      display: home.teamMembers?.display || false,
-      items: [],
-    },
-    {
-      title: home.resourceAugmentation?.title || "Resource Augmentation",
-      display: home.resourceAugmentation?.display || false,
-      items: [],
-    },
+   
   ];
   return (
     <Column maxWidth="m">
@@ -310,191 +296,15 @@ export default function About() {
             </div>
           )}
 
-          {about.technical.display && (
-            <>
-              <Heading
-                as="h2"
-                id={about.technical.title}
-                variant="display-strong-s"
-                marginBottom="m"
-                className={`s-padding-x-m ${styles.sectionHeading}`}
-              >
-                {about.technical.title}
-              </Heading>
-              <div className={styles.expertiseContainer}>
-                {about.technical.skills.map((skill, index) => {
-                  // Select icon based on skill title
-                  let IconComponent;
-                  if (skill.title.toLowerCase().includes('full-stack')) {
-                    IconComponent = FaLayerGroup;
-                  } else if (skill.title.toLowerCase().includes('ai')) {
-                    IconComponent = FaRobot;
-                  } else if (skill.title.toLowerCase().includes('mobile')) {
-                    IconComponent = FaMobileAlt;
-                  } else if (skill.title.toLowerCase().includes('database') || skill.title.toLowerCase().includes('data')) {
-                    IconComponent = FaDatabase;
-                  } else if (skill.title.toLowerCase().includes('backend') || skill.title.toLowerCase().includes('server')) {
-                    IconComponent = FaServer;
-                  } else {
-                    IconComponent = FaCode;
-                  }
-                  
-                  return (
-                    <div key={`${skill.title}-${index}`} className={styles.expertiseCard}>
-                      <div className={styles.expertiseContent}>
-                        <div className={styles.expertiseTitle}>
-                          <IconComponent size={24} color="#5a93fc" />
-                          <Text variant="heading-strong-l">{skill.title}</Text>
-                        </div>
-                        <Text variant="body-default-m" onBackground="neutral-weak">
-                          {skill.description}
-                        </Text>
-                      </div>
-                      
-                      {skill.images && skill.images.length > 0 && (
-                        <div className={styles.expertiseImages}>
-                          {skill.images.map((image, index) => (
-                            <Flex
-                              key={index}
-                              border="neutral-medium"
-                              radius="m"
-                              //@ts-ignore
-                              minWidth={image.width}
-                              //@ts-ignore
-                              height={image.height}
-                            >
-                              <SmartImage
-                                enlarge
-                                radius="m"
-                                //@ts-ignore
-                                sizes={image.width.toString()}
-                                //@ts-ignore
-                                alt={image.alt}
-                                //@ts-ignore
-                                src={image.src}
-                              />
-                            </Flex>
-                          ))}
-                        </div>
-                      )}
-                    </div>
-                  );
-                })}
-              </div>
-            </>
-          )}
+          
         </Column>
       </Flex>
       
       {/* Team Members Section */}
-      {home.teamMembers?.display && (
-        <Column gap="l" paddingY="m">
-          <Column maxWidth="s" gap="m" paddingBottom="m">
-            <Heading as="h2" id={home.teamMembers.title} variant="display-strong-m" wrap="balance">
-              {home.teamMembers.title}
-            </Heading>
-            <Text variant="body-default-l" wrap="balance" onBackground="neutral-weak">
-              {home.teamMembers.description}
-            </Text>
-          </Column>
-          
-          <div className="team-grid">
-            {home.teamMembers.members.map((member, index) => (
-              <div key={`team-${index}`} className="team-card">
-                <div className="team-image-container">
-                  <Image
-                    src={member.image}
-                    alt={member.name}
-                    width={300}
-                    height={300}
-                    className="team-image"
-                    quality={90}
-                  />
-                </div>
-                <div className="team-content">
-                  <Heading as="h3" variant="heading-strong-l">
-                    {member.name}
-                  </Heading>
-                  <Text variant="body-strong-m" onBackground="neutral-weak">
-                    {member.title}
-                  </Text>
-                  <Text variant="body-default-m" onBackground="neutral-weak">
-                    {member.bio}
-                  </Text>
-                </div>
-              </div>
-            ))}
-          </div>
-        </Column>
-      )}
+     
 
       {/* Resource Augmentation Section */}
-      {home.resourceAugmentation?.display && (
-        <Column gap="l" paddingY="m">
-          <Column maxWidth="s" gap="m" paddingBottom="m">
-            <Heading as="h2" id={home.resourceAugmentation.title} variant="display-strong-m" wrap="balance">
-              {home.resourceAugmentation.title}
-            </Heading>
-            <Text variant="body-default-l" wrap="balance" onBackground="neutral-weak">
-              {home.resourceAugmentation.description}
-            </Text>
-          </Column>
-          
-          {/* Filter Buttons */}
-          <div className="filter-buttons">
-            {home.resourceAugmentation.categories.map((category, index) => (
-              <button
-                key={`category-${index}`}
-                className={`filter-button ${activeCategory === category ? 'active' : ''}`}
-                onClick={() => setActiveCategory(category)}
-              >
-                {category}
-              </button>
-            ))}
-          </div>
-          
-          {/* Engineers Grid */}
-          <div className="resource-grid">
-            {filteredEngineers.map((engineer, index) => (
-              <div key={`engineer-${index}`} className="resource-card">
-                <div className="resource-image-container">
-                  <Image
-                    src={engineer.image}
-                    alt={engineer.name}
-                    width={300}
-                    height={300}
-                    className="resource-image"
-                    quality={90}
-                  />
-                </div>
-                <div className="resource-content">
-                  <div>
-                    <span className="resource-expertise">{engineer.expertise}</span>
-                    <Heading as="h3" variant="heading-strong-l">
-                      {engineer.name}
-                    </Heading>
-                  </div>
-                  <div>
-                    <Text variant="body-default-s" onBackground="neutral-weak">
-                      Skills:
-                    </Text>
-                    <div className="resource-skills">
-                      {engineer.skills.map((skill, skillIndex) => (
-                        <span key={`skill-${skillIndex}`} className="resource-skill">
-                          {skill}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                  <div className="resource-experience">
-                    Experience: {engineer.experience}
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </Column>
-      )}
+   
       <MobileStyles />
     </Column>
   );

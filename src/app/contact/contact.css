@@ -298,4 +298,20 @@
   .faq-section {
     padding: 3rem 1.5rem;
   }
+}
+
+.status-message {
+  padding: 12px;
+  border-radius: 6px;
+  margin-bottom: 16px;
+}
+
+.status-message.success {
+  background-color: rgba(0, 128, 0, 0.1);
+  border: 1px solid rgba(0, 128, 0, 0.3);
+}
+
+.status-message.error {
+  background-color: rgba(255, 0, 0, 0.1);
+  border: 1px solid rgba(255, 0, 0, 0.3);
 } 
