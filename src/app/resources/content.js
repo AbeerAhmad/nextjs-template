@@ -122,7 +122,7 @@ const home = {
         title: "Accelerated Development",
         description: <>Our streamlined processes and experienced teams help bring your ideas to market faster without sacrificing quality.</>,
         image: {
-          src: "/images/gallery/img-02.jpg",
+          src: "/images/why1.png",
           alt: "Accelerated Development",
           width: 16,
           height: 9,
@@ -132,7 +132,7 @@ const home = {
         title: "Cost Efficiency",
         description: <>Our global talent model provides premium development capabilities at competitive rates, maximizing your technology investment.</>,
         image: {
-          src: "/images/gallery/img-04.jpg",
+          src: "/images/why2.png",
           alt: "Cost Efficiency",
           width: 16,
           height: 9,
@@ -142,7 +142,7 @@ const home = {
         title: "Scalable Resources",
         description: <>Whether you need a complete development team or specialized expertise, we can scale our services to match your evolving needs.</>,
         image: {
-          src: "/images/gallery/img-05.jpg",
+          src: "/images/why3.png",
           alt: "Scalable Resources",
           width: 16,
           height: 9,
@@ -190,28 +190,29 @@ const home = {
     ),
     gallery: [
       {
-        src: "/images/gallery/img-10.jpg",
-        alt: "Project showcase",
+        src: "/images/parrot.png",
+        alt: "Parrot AI project",
         width: 16,
         height: 9,
-        title: "AI-Powered Analytics Dashboard",
-        description: "Custom data visualization platform for real-time business intelligence",
+        title: "Parrot AI (Top #100 on App Store)",
+        description: "Make a celebrity say anything with AI-generated videos in seconds",
       },
       {
-        src: "/images/gallery/img-12.jpg",
-        alt: "Project showcase",
+        src: "/images/perdiemfood.png",
+        alt: "Try Perdiem Food",
         width: 16,
         height: 9,
-        title: "Mobile Commerce Solution",
-        description: "Cross-platform retail application with integrated payment processing",
+        title: "Try Perdiem (YC Startup)",
+        description: "White label platform for restaurants powered by Square POS",
       },
+      
       {
-        src: "/images/gallery/img-13.jpg",
-        alt: "Project showcase",
+        src: "/images/Voxo.png",
+        alt: "Voxo project",
         width: 16,
         height: 9,
-        title: "Enterprise Resource Planning System",
-        description: "Scalable ERP solution customized for manufacturing operations",
+        title: "Voxo",
+        description: "AI-powered e-commerce platform with personalized shopping experiences",
       },
     ],
     video: {
