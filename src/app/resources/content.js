@@ -239,41 +239,23 @@ const home = {
     ),
     members: [
       {
-        name: "Alex Johnson",
+        name: "Eric Chesbrough",
         title: "Chief Technology Officer",
-        image: "https://picsum.photos/id/1005/300/300",
-        bio: "Alex leads our technology strategy with over 15 years of experience in software architecture and AI."
+        image: "/images/eric.jpg",
+        bio: "Eric leads our technology strategy with over 15 years of experience in software architecture and AI."
       },
       {
-        name: "Sarah Williams",
-        title: "Lead Product Manager",
-        image: "https://picsum.photos/id/1011/300/300",
-        bio: "Sarah ensures our solutions align perfectly with client business objectives and market needs."
+        name: "Abeer A",
+        title: "Chief Technology Officer",
+        image: "/images/aa.png",
+        bio: "Abeer ensures our solutions align perfectly with client business objectives and market needs."
       },
       {
-        name: "Michael Chen",
+        name: "Mike Chen",
         title: "Senior Full-Stack Developer",
-        image: "https://picsum.photos/id/1012/300/300",
-        bio: "Michael specializes in building scalable web applications with modern JavaScript frameworks."
+        image: "/images/mike1.png",
+        bio: "Mike specializes in building scalable systems and architectures."
       },
-      {
-        name: "Elena Rodriguez",
-        title: "AI/ML Engineer",
-        image: "https://picsum.photos/id/1027/300/300",
-        bio: "Elena brings cutting-edge machine learning capabilities to our client solutions."
-      },
-      {
-        name: "David Kim",
-        title: "UX/UI Design Lead",
-        image: "https://picsum.photos/id/1025/300/300",
-        bio: "David creates intuitive and beautiful user experiences that delight users and drive engagement."
-      },
-      {
-        name: "Priya Patel",
-        title: "DevOps Engineer",
-        image: "https://picsum.photos/id/1062/300/300",
-        bio: "Priya ensures our infrastructure is robust, secure, and optimized for performance."
-      }
     ]
   },
   resourceAugmentation: {

@@ -306,6 +306,48 @@ export default function About() {
       </Flex>
       
       {/* Team Members Section */}
+
+      {home.teamMembers?.display && (
+        <Column gap="l" paddingY="m">
+          <Column maxWidth="s" gap="m" paddingBottom="m">
+            <Heading as="h2" id={home.teamMembers.title} variant="display-strong-m" wrap="balance">
+              {home.teamMembers.title}
+            </Heading>
+            <Text variant="body-default-l" wrap="balance" onBackground="neutral-weak">
+              {home.teamMembers.description}
+            </Text>
+          </Column>
+          
+          <div className="team-grid">
+            {home.teamMembers.members.map((member, index) => (
+              <div key={`team-${index}`} className="team-card">
+                <div className="team-image-container">
+                  <Image
+                    src={member.image}
+                    alt={member.name}
+                    width={300}
+                    height={300}
+                    className="team-image"
+                    quality={90}
+                  />
+                </div>
+                <div className="team-content">
+                  <Heading as="h3" variant="heading-strong-l">
+                    {member.name}
+                  </Heading>
+                  <Text variant="body-strong-m" onBackground="neutral-weak">
+                    {member.title}
+                  </Text>
+                  <Text variant="body-default-m" onBackground="neutral-weak">
+                    {member.bio}
+                  </Text>
+                </div>
+              </div>
+            ))}
+          </div>
+        </Column>
+      )}
+
      
 
       {/* Resource Augmentation Section */}
