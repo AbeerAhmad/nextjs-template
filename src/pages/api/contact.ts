@@ -21,7 +21,7 @@ export default async function handler(req, res) {
     // Email to admin
     await transporter.sendMail({
       from: process.env.EMAIL_USER,
-      to: [process.env.ADMIN_EMAIL1,process.env.ADMIN_EMAIL2],
+      to: [process.env.ADMIN_EMAIL1 || '', process.env.ADMIN_EMAIL2 || ''],
       subject: 'New Contact Form Submission',
       html: `
         <h2>New Contact Form Submission</h2>

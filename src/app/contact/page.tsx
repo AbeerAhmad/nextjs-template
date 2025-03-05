@@ -178,7 +178,6 @@ export default function ContactPage() {
                         required
                         value={formData.name}
                         onChange={handleInputChange}
-                        error={errors.name}
                       />
                     </div>
                     <div className="form-group">
@@ -189,7 +188,6 @@ export default function ContactPage() {
                         required
                         value={formData.email}
                         onChange={handleInputChange}
-                        error={errors.email}
                       />
                     </div>
                   </div>
@@ -200,7 +198,6 @@ export default function ContactPage() {
                     required
                     value={formData.subject}
                     onChange={handleInputChange}
-                    error={errors.subject}
                   />
                   
                   <Textarea
@@ -210,7 +207,6 @@ export default function ContactPage() {
                     required
                     value={formData.message}
                     onChange={handleInputChange}
-                    error={errors.message}
                   />
                   
                   <Button 
