@@ -538,7 +538,6 @@ console.log(isVideoModalOpen)
           videoUrl={about.video.url}
           title={about.video.title}
           description={about.video.description}
-          autoPlay={true}
         />
 
         <VideoModal
@@ -547,7 +546,6 @@ console.log(isVideoModalOpen)
           videoUrl={home.showcase?.video?.url || ""}
           title={home.showcase?.video?.title || ""}
           description={home.showcase?.video?.description || ""}
-          autoPlay={true}
         />
 
         <VideoModal
@@ -556,7 +554,6 @@ console.log(isVideoModalOpen)
           videoUrl={home.benefits?.video?.url || ""}
           title={home.benefits?.video?.title || ""}
           description={home.benefits?.video?.description || ""}
-          autoPlay={true}
         />
         <MobileStyles />
       </Column>
