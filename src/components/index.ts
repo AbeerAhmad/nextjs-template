@@ -7,4 +7,4 @@ export { RouteGuard } from "@/components/RouteGuard";
 export { VideoModal } from "@/components/VideoModal";
 export { HomePage } from "@/components/HomePage";
 export { ProjectsClient } from "@/components/work/ProjectsClient";
-export { PostsClient } from "@/components/blog/PostsClient";
+// export { PostsClient } from "@/components/blog/PostsClient";
