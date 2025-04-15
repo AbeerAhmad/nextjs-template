@@ -24,6 +24,7 @@ const style = {
   border: "playful", // rounded | playful | conservative
   surface: "translucent", // filled | translucent
   transition: "micro", // all | micro | macro
+
 };
 
 const effects = {
@@ -83,7 +84,7 @@ const mailchimp = {
       width: 100,
       height: 100,
       tilt: -45,
-      colorStart: "accent-background-strong",
+      colorStart: "brand-background-strong",
       colorEnd: "static-transparent",
       opacity: 100,
     },
