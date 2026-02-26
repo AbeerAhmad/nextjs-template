@@ -17,6 +17,14 @@ export function MobileStyles() {
         width: 100%;
       }
       
+      /* Work page expertise grid - 2x2 layout for 4 cards */
+      .work-expertise-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+        width: 100%;
+      }
+
       /* Ensure showcase grid always has 3 columns */
       .showcase-grid {
         display: grid;
@@ -322,7 +330,8 @@ export function MobileStyles() {
         .expertise-grid,
         .team-grid,
         .resource-grid,
-        .showcase-grid {
+        .showcase-grid,
+        .work-expertise-grid {
           grid-template-columns: 1fr;
           gap: 1.5rem;
         }

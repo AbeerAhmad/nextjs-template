@@ -635,6 +635,17 @@ const work = {
         'Process Optimization',
         'Technology Selection'
       ]
+    },
+    {
+      title: 'Search Engine Optimization (SEO)',
+      description:
+        'Data-driven strategies to increase your visibility, traffic, and online growth',
+      areas: [
+        'SEO Marketing',
+        'Website SEO Optimization',
+        'Local Keyword Optimization',
+        'Technical SEO'
+      ]
     }
   ]
   // Create new project pages by adding a new .mdx file to app/blog/posts

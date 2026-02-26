@@ -44,6 +44,7 @@ export default function Work() {
     "/images/projects/project-01/cover-01.jpg",
     "/images/projects/project-01/cover-02.jpg",
     "/images/projects/project-01/cover-03.jpg",
+    "/images/Seo2.png",
   ];
 
   return (
@@ -102,7 +103,7 @@ export default function Work() {
           <Heading as="h2" variant="heading-strong-xl">
             Our Areas of Expertise
           </Heading>
-          <div className="expertise-grid">
+          <div className="work-expertise-grid">
             {work.expertise.map((area, index) => (
               <div key={index} className="expertise-card">
                 <div className="expertise-image-container">
