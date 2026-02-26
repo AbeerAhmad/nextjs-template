@@ -19,18 +19,19 @@ import { person, about, social, home } from "@/app/resources/content";
 import React, { useState } from "react";
 import Image from "next/image";
 import { MobileStyles } from "@/components/MobileStyles";
-import { 
-  FaBrain, 
-  FaCode, 
-  FaLightbulb, 
-  FaCogs, 
-  FaRocket, 
-  FaLayerGroup, 
-  FaDatabase, 
-  FaMobileAlt, 
-  FaServer, 
+import {
+  FaBrain,
+  FaCode,
+  FaLightbulb,
+  FaCogs,
+  FaRocket,
+  FaLayerGroup,
+  FaDatabase,
+  FaMobileAlt,
+  FaServer,
   FaRobot,
-  FaUsers
+  FaUsers,
+  FaSearch
 } from "react-icons/fa";
 
 export default function About() {
@@ -192,6 +193,8 @@ export default function About() {
                   let IconComponent;
                   if (experience.company.toLowerCase().includes('custom') || experience.company.toLowerCase().includes('software')) {
                     IconComponent = FaCode;
+                  } else if (experience.company.toLowerCase().includes('seo') || experience.company.toLowerCase().includes('search engine')) {
+                    IconComponent = FaSearch;
                   } else if (experience.company.toLowerCase().includes('technical') || experience.company.toLowerCase().includes('staffing')) {
                     IconComponent = FaUsers;
                   } else if (experience.company.toLowerCase().includes('consulting')) {
