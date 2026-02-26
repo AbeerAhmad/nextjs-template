@@ -260,8 +260,8 @@ const home = {
     title: 'Ready to Transform Your Business?',
     description: (
       <>
-        Let's discuss how our software development and staffing solutions can
-        help you achieve your technology goals.
+        Let's discuss how our software development, staffing, and GBP
+        optimization solutions can help you achieve your business goals.
       </>
     ),
     buttonText: 'Get in Touch',
@@ -459,27 +459,27 @@ const about = {
         ]
       },
       {
-        company: 'Search Engine Optimization (SEO)',
+        company: 'GBP Profile Optimization & Rank Improvement',
         timeframe: 'Core Service',
-        role: 'SEO Marketing & Website Optimization',
+        role: 'Google Business Profile Management',
         achievements: [
           <>
-            We deliver result-driven SEO marketing services that improve your
-            website's visibility, rankings, and traffic on search engines like
-            Google and Bing. From website SEO audits and on-page optimization to
-            technical SEO, local keyword optimization, and high-quality SEO
-            content, we help your business attract the right audience.
+            We optimize your Google Business Profile to maximize local search
+            visibility and drive more customers to your business. From profile
+            setup and verification to category optimization, photo management,
+            and review strategy, we ensure your GBP listing outperforms
+            competitors in local search results.
           </>,
           <>
-            Our white-hat strategies focus on performance, authority building,
-            and sustainable growth, turning search visibility into real leads
-            and revenue.
+            Our data-driven GBP strategies focus on improving your local pack
+            rankings, increasing map visibility, and turning Google searches
+            into real foot traffic and phone calls for your business.
           </>
         ],
         images: [
           {
             src: '/images/SEO.png',
-            alt: 'SEO Marketing & Website Optimization',
+            alt: 'GBP Profile Optimization & Rank Improvement',
             width: 16,
             height: 9
           }
@@ -637,14 +637,14 @@ const work = {
       ]
     },
     {
-      title: 'Search Engine Optimization (SEO)',
+      title: 'GBP Profile Optimization & Rank Improvement',
       description:
-        'Data-driven strategies to increase your visibility, traffic, and online growth',
+        'Dominate local search with optimized Google Business Profile management and ranking strategies',
       areas: [
-        'SEO Marketing',
-        'Website SEO Optimization',
-        'Local Keyword Optimization',
-        'Technical SEO'
+        'GBP Profile Setup & Optimization',
+        'Local Pack Ranking Improvement',
+        'Review Management & Strategy',
+        'Local Search Visibility'
       ]
     }
   ]

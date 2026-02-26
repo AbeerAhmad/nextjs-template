@@ -127,10 +127,10 @@ console.log(isVideoModalOpen)
             __html: schemaJson
           }}
         />
-        <Column fillWidth paddingY="l" gap="m">
-          <Column maxWidth="s">
+        <div className="hero-section">
+          <div className="hero-content">
             <RevealFx translateY="4" fillWidth horizontal="start" paddingBottom="m">
-              <Heading wrap="balance" variant="display-strong-l">
+              <Heading wrap="balance" variant="display-strong-m">
                 {home.headline}
               </Heading>
             </RevealFx>
@@ -140,43 +140,76 @@ console.log(isVideoModalOpen)
               </Text>
             </RevealFx>
             <RevealFx translateY="12" delay={0.4} horizontal="start">
-              <Button
-                id="about"
-                data-border="rounded"
-                onClick={openVideoModal}
-                variant="secondary"
-                size="m"
-                arrowIcon
-              >
-                <Flex gap="8" vertical="center">
-                  {about.avatar.display && (
-                    <Avatar
-                      style={{ marginLeft: "-0.75rem", marginRight: "0.25rem" }}
-                      src={person.avatar}
-                      size="m"
-                    />
-                  )}
+              <Flex gap="12" wrap>
+                <Button
+                  id="about"
+                  data-border="rounded"
+                  onClick={openVideoModal}
+                  variant="secondary"
+                  size="m"
+                  arrowIcon
+                >
                   <Flex gap="8" vertical="center">
-                    <svg
-                      width="16"
-                      height="16"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                      style={{ marginRight: "0.25rem" }}
-                    >
-                      <path
-                        d="M8 5.14V19.14L19 12.14L8 5.14Z"
-                        fill="currentColor"
+                    {about.avatar.display && (
+                      <Avatar
+                        style={{ marginLeft: "-0.75rem", marginRight: "0.25rem" }}
+                        src={person.avatar}
+                        size="m"
                       />
-                    </svg>
-                    {about.title}
+                    )}
+                    <Flex gap="8" vertical="center">
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        style={{ marginRight: "0.25rem" }}
+                      >
+                        <path
+                          d="M8 5.14V19.14L19 12.14L8 5.14Z"
+                          fill="currentColor"
+                        />
+                      </svg>
+                      {about.title}
+                    </Flex>
                   </Flex>
-                </Flex>
-              </Button>
+                </Button>
+              </Flex>
             </RevealFx>
-          </Column>
-        </Column>
+          </div>
+          <div className="hero-images-wrapper">
+            <div className="hero-images-collage">
+              <div className="hero-img hero-img-corner-top">
+                <Image
+                  src="/images/hero1.png"
+                  alt="Sofrix hero image"
+                  width={160}
+                  height={180}
+                  quality={90}
+                />
+              </div>
+              <div className="hero-img hero-img-center">
+                <Image
+                  src="/images/Hero3.gif"
+                  alt="Sofrix hero animation"
+                  width={450}
+                  height={340}
+                  unoptimized
+                />
+              </div>
+              <div className="hero-img hero-img-corner-bottom">
+                <Image
+                  src="/images/hero2.png"
+                  alt="Sofrix hero image"
+                  width={180}
+                  height={130}
+                  quality={90}
+                />
+              </div>
+            </div>
+          </div>
+        </div>
         <RevealFx translateY="16" delay={0.6} style={{ marginTop: "-2rem" }}>
           {routes["/work"] && <ProjectsClient range={projectsRangeOne} projects={[]} />}
         </RevealFx>

@@ -31,7 +31,7 @@ import {
   FaServer,
   FaRobot,
   FaUsers,
-  FaSearch
+  FaMapMarkerAlt
 } from "react-icons/fa";
 
 export default function About() {
@@ -193,8 +193,8 @@ export default function About() {
                   let IconComponent;
                   if (experience.company.toLowerCase().includes('custom') || experience.company.toLowerCase().includes('software')) {
                     IconComponent = FaCode;
-                  } else if (experience.company.toLowerCase().includes('seo') || experience.company.toLowerCase().includes('search engine')) {
-                    IconComponent = FaSearch;
+                  } else if (experience.company.toLowerCase().includes('gbp') || experience.company.toLowerCase().includes('google business')) {
+                    IconComponent = FaMapMarkerAlt;
                   } else if (experience.company.toLowerCase().includes('technical') || experience.company.toLowerCase().includes('staffing')) {
                     IconComponent = FaUsers;
                   } else if (experience.company.toLowerCase().includes('consulting')) {
